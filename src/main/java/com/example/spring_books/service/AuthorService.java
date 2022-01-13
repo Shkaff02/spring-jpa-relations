@@ -14,6 +14,7 @@ import java.util.Set;
 public class AuthorService {
     private final AuthorRepository repository;
 
+
     public AuthorService(AuthorRepository repository) {
         this.repository = repository;
     }
@@ -73,6 +74,10 @@ public class AuthorService {
     public String deleteAuthor(int id) {
         repository.deleteById(id);
         return "Author #" + id + " was deleted!";
+    }
+
+    public String findAuthorInfoById(int id) {
+        return repository.findAuthorFullNameById(id);
     }
 
 }

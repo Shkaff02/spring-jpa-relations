@@ -10,4 +10,6 @@ spring:
     hibernate:
       ddl-auto: update
 server:
-  port: 9190
+  port: 9192
+#  servlet:
+#    context-path: /v1

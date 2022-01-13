@@ -17,62 +17,67 @@ public class AuthorController {
         this.service = service;
     }
 
-    @PostMapping("/saveAuthor")
+    @PostMapping("/author")
     public Author saveAuthor(@RequestBody Author author) {
         return service.saveAuthor(author);
     }
 
-    @PostMapping("/saveAuthors")
+    @PostMapping("/authors")
     public List<Author> saveAuthors(@RequestBody List<Author> authors) {
         return service.saveAuthors(authors);
     }
 
-    @PostMapping("/addBook/{id}")
-    public Author addBook(@PathVariable int id, @RequestBody Book book) {
-        return service.addBook(book, id);
-    }
+//    @PostMapping("/author/{id}/book")
+//    public Author addBook(@PathVariable int id, @RequestBody Book book) {
+//        return service.addBook(book, id);
+//    }
 
     @GetMapping("/authors")
     public List<Author> getAuthors() {
         return service.getAuthors();
     }
 
-    @GetMapping("/authorById/{id}")
+    @GetMapping("/author/{id}")
     public Author getAuthorById(@PathVariable int id) {
         return service.getAuthorById(id);
     }
 
-    @GetMapping("/authorByFirstName/{firstName}")
+    @GetMapping("/author/firstName/{firstName}")
     public List<Author> getAuthorsByFirstName(@PathVariable String firstName) {
         return service.getAuthorsByFirstName(firstName);
     }
 
-    @GetMapping("/authorByLastName/{lastName}")
+    @GetMapping("/author/lastName/{lastName}")
     public List<Author> getAuthorsByLastName(@PathVariable String lastName) {
         return service.getAuthorsByLastName(lastName);
     }
 
-    @GetMapping("/authorByCountry/{country}")
+    @GetMapping("/author/country/{country}")
     public List<Author> getAuthorsByCountry(@PathVariable String country) {
         return service.getAuthorsByCountry(country);
     }
 
-    @GetMapping("/authorBySex/{sex}")
+    @GetMapping("/author/sex/{sex}")
     public List<Author> getAuthorsBySex(@PathVariable String sex) {
         return service.getAuthorsBySex(sex);
     }
 
-    @GetMapping("/authorByBirth/{birth}")
+    @GetMapping("/author/birth/{birth}")
     public List<Author> getAuthorsByBirth(@PathVariable Date birth) {
         return service.getAuthorsByBirth(birth);
     }
 
-    @PutMapping("/updateAuthor")
+    @GetMapping("/rewardAuthor/{id}")
+    public String getAuthorByRewardId(@PathVariable int id) {
+        return service.findAuthorInfoById(id);
+    }
+
+    @PutMapping("/author")
     public Author updateAuthor(@RequestBody Author author) {
         return service.updateAuthor(author);
     }
 
-    @DeleteMapping("/deleteAuthor/{id}")
+    @DeleteMapping("/author/{id}")
     public String deleteAuthor(@PathVariable int id) {
         return service.deleteAuthor(id);
     }

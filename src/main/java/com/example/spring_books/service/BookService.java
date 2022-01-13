@@ -77,4 +77,8 @@ public class BookService {
         book.assignPublisher(publisher);
         return repository.save(book);
     }
+
+    public String findBookNameByAuthor(int id) {
+        return repository.findBookNameByAuthor(id);
+    }
 }

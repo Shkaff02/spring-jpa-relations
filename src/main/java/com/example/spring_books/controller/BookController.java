@@ -17,42 +17,47 @@ public class BookController {
         this.service = service;
     }
 
-    @PostMapping("/saveBook")
+    @PostMapping("/book")
     public Book saveBook(@RequestBody Book book) {
         return service.saveBook(book);
     }
 
-    @PostMapping("/saveBooks")
+    @PostMapping("/book/many")
     public List<Book> saveBooks(@RequestBody List<Book> books) {
         return service.saveBooks(books);
     }
 
-    @GetMapping("/getBooks")
+    @GetMapping("/book/all")
     public List<Book> getBooks(){
         return service.getBooks();
     }
 
-    @GetMapping("/getBookById/{id}")
+    @GetMapping("/book/{id}")
     public Book getBookById(@PathVariable int id) {
         return service.getBookById(id);
     }
 
-    @GetMapping("/getBooksByName/{name}")
+    @GetMapping("/book/name/{name}")
     public List<Book> getBooksByName(@PathVariable String name) {
         return service.getBooksByName(name);
     }
 
-    @GetMapping("/getBooksByDate/{date}")
+    @GetMapping("/book/date/{date}")
     public List<Book> getBooksByCreationDate(@PathVariable Date date){
         return service.getBooksByCreationDate(date);
     }
 
-    @GetMapping("/getBooksByPages/{pages}")
+    @GetMapping("/book/pages/{pages}")
     public List<Book> getBooksByPages(@PathVariable int pages) {
         return service.getBooksByPages(pages);
     }
 
-    @PutMapping("/updateBook")
+    @GetMapping("/book/author/{id}")
+    public String findBookNameByAuthor(@PathVariable int id) {
+        return service.findBookNameByAuthor(id);
+    }
+
+    @PutMapping("/book")
     public Book updateBook(@RequestBody Book book) {
         return service.updateBook(book);
     }
@@ -67,7 +72,7 @@ public class BookController {
         return service.addBookToPublisher(publisher_id, book_id);
     }
 
-    @DeleteMapping("/deleteBook/{id}")
+    @DeleteMapping("/book/{id}")
     public String deleteBook(@PathVariable int id) {
         return service.deleteBook(id);
     }

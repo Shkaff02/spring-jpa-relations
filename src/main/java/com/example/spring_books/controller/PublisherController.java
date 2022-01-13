@@ -14,52 +14,52 @@ public class PublisherController {
         this.service = service;
     }
 
-    @PostMapping("/savePublisher")
+    @PostMapping("/publisher")
     public Publisher savePublisher(@RequestBody Publisher publisher) {
         return service.savePublisher(publisher);
     }
 
-    @PostMapping("/savePublishers")
+    @PostMapping("/publisher/many")
     public List<Publisher> savePublishers(@RequestBody List<Publisher> publishers) {
         return service.saveAllPublishers(publishers);
     }
 
-    @GetMapping("/publishers")
+    @GetMapping("/publisher/all")
     public List<Publisher> getPublishers(){
         return service.getPublishers();
     }
 
-    @GetMapping("/publisherById/{id}")
+    @GetMapping("/publisher/{id}")
     public Publisher getPublisherById(@PathVariable int id) {
         return service.getPublisherById(id);
     }
 
-    @GetMapping("/publisherByName/{name}")
+    @GetMapping("/publisher/name/{name}")
     public Publisher getPublishersByName(@PathVariable String name) {
         return service.getPublisherByName(name);
     }
 
-    @GetMapping("/publishersByCountry/{country}")
+    @GetMapping("/publisher/country/{country}")
     public List<Publisher> getPublishersByCountry(@PathVariable String country) {
         return service.getPublishersByCountry(country);
     }
 
-    @GetMapping("/publishersByCity/{city}")
+    @GetMapping("/publisher/city/{city}")
     public List<Publisher> getPublishersByCity(@PathVariable String city) {
         return service.getPublishersByCity(city);
     }
 
-    @GetMapping("/publisherByAddress/{address}")
+    @GetMapping("/publisher/address/{address}")
     public Publisher getPublishersByAddress(@PathVariable String address) {
         return service.getPublisherByAddress(address);
     }
 
-    @PutMapping("/updatePublisher")
+    @PutMapping("/publisher")
     public Publisher updatePublisher(@RequestBody Publisher publisher) {
         return service.updatePublisher(publisher);
     }
 
-    @DeleteMapping("/deletePublisher/{id}")
+    @DeleteMapping("/publisher/{id}")
     public String deletePublisher(@PathVariable int id) {
         return service.deletePublisher(id);
     }

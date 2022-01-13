@@ -25,5 +25,8 @@ public class Publisher {
     @JsonIgnore
     @OneToMany(mappedBy = "publisher")
     private Set<Book> books = new HashSet<>();
+    @JsonIgnore
+    @OneToMany(mappedBy = "publisher")
+    private Set<Reward> rewards = new HashSet<>();
 
 }

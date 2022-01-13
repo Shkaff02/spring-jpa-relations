@@ -15,32 +15,32 @@ public class RewardController {
         this.service = service;
     }
 
-    @PostMapping("/saveReward")
+    @PostMapping("/reward")
     public Reward saveReward(@RequestBody Reward reward) {
         return service.saveReward(reward);
     }
 
-    @PostMapping("/saveRewards")
+    @PostMapping("/reward/many")
     public List<Reward> saveReward(@RequestBody List<Reward> rewards) {
         return service.saveRewards(rewards);
     }
 
-    @GetMapping("/rewards")
+    @GetMapping("/reward/all")
     public List<Reward> getRewards() {
         return service.getRewards();
     }
 
-    @GetMapping("/rewardById/{id}")
+    @GetMapping("/reward/{id}")
     public Reward getRewardById(@PathVariable int id) {
         return service.getRewardById(id);
     }
 
-    @GetMapping("/rewardByName/{name}")
+    @GetMapping("/reward/name/{name}")
     public List<Reward> getRewardByName(@PathVariable String  name) {
         return service.getRewardsByName(name);
     }
 
-    @PutMapping("/updateReward")
+    @PutMapping("/reward")
     public Reward updateReward(@RequestBody Reward reward) {
         return service.updateReward(reward);
     }
@@ -50,7 +50,17 @@ public class RewardController {
         return service.addRewardToAuthor(author_id, reward_id);
     }
 
-    @DeleteMapping("/deleteReward/{id}")
+    @PutMapping("book/{book_id}/reward/{reward_id}")
+    public Reward assignRewardToBook(@PathVariable int book_id, @PathVariable int reward_id) {
+        return service.addRewardToBook(book_id, reward_id);
+    }
+
+    @PutMapping("publisher/{publisher_id}/reward/{reward_id}")
+    public Reward assignRewardToPublisher(@PathVariable int publisher_id, @PathVariable int reward_id) {
+        return service.addRewardToPublisher(publisher_id, reward_id);
+    }
+
+    @DeleteMapping("/reward/{id}")
     public String deleteReward(@PathVariable int id) {
         return service.deleteReward(id);
     }
